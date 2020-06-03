@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>My Task Board</header>
+    <div id="addTask">
+        <br>
+        <label for="taskDetails">Task:</label>
+        <textarea id="taskDetails" placeholder="Enter task description" title="Task details"></textarea>
+        <label for="dateInput" style="margin-top: 100px;">Date:</label>
+        <input id="dateInput" type="date">
+        <label for ="timeInput" style="margin-top: 30px;">Time:</label>
+        <input id="timeInput" type="time">
+        <button id="addBtn" type="button">Add</button>
+        <button id="resetBtn" type="button">Reset</button>
+    </div>
+    <div id="notesArea">
+        <div class="note">
+            <button type="button">&times;</button>
+            <div class="noteText">Finish project 1 in John Bryce FS WEB</div>
+            <div class="finishTime">15/06/2020<Br>23:00</div>
+        </div>
+    </div>
+</body>
+
+</html>
