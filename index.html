@@ -5,29 +5,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Board</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/notebg.png">
+    <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="popupRemark.css">
 </head>
 
 <body>
     <header>My Task Board</header>
     <div id="addTask">
         <br>
-        <label for="taskDetails">Task:</label>
-        <textarea id="taskDetails" placeholder="Enter task description" title="Task details"></textarea>
-        <label for="dateInput" style="margin-top: 100px;">Date:</label>
+        <div class="remark" id="noDetailsRemark">Please fill in task details.</div>
+        <label for="taskDetails" title="Task details">Task:</label>
+        <textarea id="taskDetails" placeholder="Enter task description"></textarea>
+        <div class="remark" id="noDateRemark">Please fill in finish date.</div>
+        <label for="dateInput" style="margin-top: 100px;" title="Task finish date">Date:</label>
         <input id="dateInput" type="date">
-        <label for ="timeInput" style="margin-top: 30px;">Time:</label>
+        <label for="timeInput" style="margin-top: 30px;" title="Task finish time">Time:</label>
         <input id="timeInput" type="time">
-        <button id="addBtn" type="button">Add</button>
-        <button id="resetBtn" type="button">Reset</button>
+        <button id="addBtn" type="button" onclick="addTask()">Add</button>
+        <button id="resetBtn" type="button" onclick="resetInputs()">Reset</button>
     </div>
     <div id="notesArea">
         <div class="note">
-            <button type="button">&times;</button>
+            <button type="button" onclick="deleteNote(event)">&times;</button>
             <div class="noteText">Finish project 1 in John Bryce FS WEB</div>
             <div class="finishTime">15/06/2020<Br>23:00</div>
         </div>
     </div>
+    <div class="popup" id="noDetailsPopup">
+        <header>Task details not filled</header>
+        <div>Can not add a new task without task details filled.<br>Please fill task details!</div>
+    </div>
+    <div class="popup" id="noDatePopup">
+        <header>Finish date not filled</header>
+        <div>Can not add a new task without finish date filled.<br>Please fill finish date!</div>
+    </div>
+    <div class="popup" id="noMustPopup">
+        <header>Both must fields not filled</header>
+        <div>Can not add a new task without task details and finish date filled.<br>Please fill them both!</div>
+    </div>
+    <script src="JS/app.js"></script>
+    <script src="JS/taskConstructor.js"></script>
 </body>
 
 </html>

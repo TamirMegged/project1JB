@@ -1,0 +1,38 @@
+/* popups */
+.popup {
+    width: 550px;
+    visibility: hidden;
+    border: 2px solid rgb(92, 92, 255);
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    font-size: 1.5em;
+}
+.popup > header {
+    border-radius: 10px;
+    text-align: center;
+    padding: 5px;
+    font-size: 1.5em;
+    background-color: black;
+    color: rgb(254, 255, 153);
+}
+
+/* remarks */
+.remark {
+    visibility: hidden;
+    color: red;
+    font-weight: bolder;
+    font-size: 12px;
+    position: absolute;
+    left: 80px;
+}
+#noDetailsRemark {
+    top: 0;
+}
+#noDateRemark {
+    top: 130px;
+}
