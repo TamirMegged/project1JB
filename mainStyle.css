@@ -11,7 +11,7 @@ body > header {
 }
 
 
-/* add task area */
+/* add a task area */
 #addTask {
     background-image: url('images/formbg.jpg');
     width: 650px;

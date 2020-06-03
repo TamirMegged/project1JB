@@ -1,7 +1,7 @@
 //constructor for tasks info objects
 function Task(details, date, time) {
     this.details = details;
-    this.date = sortDate(date);
+    this.date = date;
     this.time = time;
 }
 
