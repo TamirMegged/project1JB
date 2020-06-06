@@ -81,8 +81,9 @@ textarea {
 /* saved tasks area (notes) */
 #notesArea {
     width: 1200px;
-     /*if inner scroll is prefered */
-    /* height: 250px; */
+    /*if inner scroll is prefered */
+    /* height: 250px;
+    width: 1220px; */
     display: flex;
     flex-wrap: wrap;
     overflow: auto;
@@ -97,6 +98,7 @@ textarea {
 }
 
 .noteText {
+    pointer-events: none;
     position: absolute;
     top: 45px;
     left: 15px;
@@ -107,6 +109,7 @@ textarea {
 }
 
 .note > button {
+    visibility: hidden;
     position: absolute;
     top: 20px;
     right: 25px;
@@ -120,6 +123,7 @@ textarea {
 }
 
 .finishTime {
+    pointer-events: none;
     position: absolute;
     bottom: 5px;
     left: 5px;

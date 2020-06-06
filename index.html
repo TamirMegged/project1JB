@@ -28,22 +28,22 @@
     </div>
     <div id="notesArea">
         <!-- Example note: -->
-        <!-- <div class="note">
-            <button type="button" onclick="deleteNote(event)">&times;</button>
+        <!-- <div class="note" onmouseover="showX(event)" onmouseout="hideX(event)">
+            <button type="button" onclick="deleteNote(event)" onmouseover="showMe(event)">&times;</button>
             <div class="noteText">Finish project 1 in John Bryce FS WEB</div>
             <div class="finishTime">15/06/2020<Br>23:00</div>
         </div> -->
     </div>
     <div class="popup" id="noDetailsPopup">
-        <header>Task details not filled</header>
+        <header>Task details are not filled</header>
         <div>Can not add a new task without task details filled.<br>Please fill task details!</div>
     </div>
     <div class="popup" id="noDatePopup">
-        <header>Finish date not filled</header>
+        <header>Finish date is not filled</header>
         <div>Can not add a new task without finish date filled.<br>Please fill finish date!</div>
     </div>
     <div class="popup" id="noBothPopup">
-        <header>Both "must" fields not filled</header>
+        <header>Both "must" fields are not filled</header>
         <div>Can not add a new task without task details and finish date filled.<br>Please fill them both!</div>
     </div>
     <script src="JS/app.js"></script>

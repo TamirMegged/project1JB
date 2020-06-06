@@ -4,7 +4,6 @@ function sortDate(date) {
         return;
     }
     dateArr = date.split('-');
-    console.log(dateArr);
     var year = dateArr[0];
     var month = dateArr[1];
     var day = dateArr[2];
@@ -24,10 +23,9 @@ function addTask() {
         let counter = JSON.parse(localStorage.getItem('notes')).length;
         let task = new Task(details, sortedDate, time, counter);
         task.toNote();
-        resetInputs();
         tasksArr.push(task);
         localStorage.setItem('notes', JSON.stringify(tasksArr));
-        document.querySelector('textarea').focus();
+        resetInputs();
     }
 }
 
@@ -37,6 +35,7 @@ function resetInputs() {
     document.querySelector('textarea').value = "";
     document.getElementById('dateInput').value = "";
     document.getElementById('timeInput').value = "";
+    document.querySelector('textarea').focus();
 }
 
 
@@ -55,7 +54,6 @@ function deleteNote(e) {
         index++
         }
     }
-    localStorage.removeItem('notes');
     localStorage.setItem('notes', JSON.stringify(tasksArr));
 }
 
@@ -95,6 +93,18 @@ function checkMustInputs(date, details) {
     } else {
         return true;
     }
+}
+
+
+//show the delete note button (x)
+function showX() {
+    this.querySelector('button').style.visibility = 'visible';
+}
+function hideX() {
+    this.querySelector('button').style.visibility = 'hidden';
+}
+function showMe() {
+    this.style.visibility = 'visible';
 }
 
 
