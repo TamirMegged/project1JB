@@ -96,18 +96,6 @@ function checkMustInputs(date, details) {
 }
 
 
-//show the delete note button (x)
-function showX() {
-    this.querySelector('button').style.visibility = 'visible';
-}
-function hideX() {
-    this.querySelector('button').style.visibility = 'hidden';
-}
-function showMe() {
-    this.style.visibility = 'visible';
-}
-
-
 //reload notes from local storage and show them
 window.onload = function (e) {
     let temp = localStorage.getItem('notes');

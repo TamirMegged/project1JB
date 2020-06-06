@@ -12,15 +12,12 @@ Task.prototype.toNote = function () {
     var notesArea = document.getElementById('notesArea');
     var note = document.createElement('div');
     note.classList.add('note');
-    note.onmouseover = showX;
-    note.onmouseout = hideX;
     var noteId = document.createAttribute('data-id');
     noteId.value = this.dataId;
     note.setAttributeNode(noteId);
     var button = document.createElement('button');
     button.innerHTML = '&times;';
     button.onclick = deleteNote;
-    button.onmouseover = showMe;
     var noteText = document.createElement('div');
     noteText.classList.add('noteText');
     var finishTime = document.createElement('div');
