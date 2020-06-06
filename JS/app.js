@@ -14,16 +14,20 @@ function sortDate(date) {
 
 //when user click add - add task by executing toNote() method on current inputs' values
 let tasksArr = [];
+
 function addTask() {
     let details = document.querySelector('textarea').value;
-    let date = sortDate(document.getElementById('dateInput').value);
+    let date = document.getElementById('dateInput').value;
+    let sortedDate = sortDate(date);
     let time = document.getElementById('timeInput').value;
     if (checkMustInputs(date, details)) {
-        let task = new Task(details, date, time);
+        let counter = JSON.parse(localStorage.getItem('notes')).length;
+        let task = new Task(details, sortedDate, time, counter);
         task.toNote();
         resetInputs();
         tasksArr.push(task);
-        localStorage.setItem("all", JSON.stringify(tasksArr));
+        localStorage.setItem('notes', JSON.stringify(tasksArr));
+        document.querySelector('textarea').focus();
     }
 }
 
@@ -38,12 +42,21 @@ function resetInputs() {
 
 //when user click on x (in note) - delete note from HTML and local storage
 function deleteNote(e) {
-    e.target.parentElement.remove();
-    for (var i = 0; i < tasksArr.length; i++) {
-        if (e.target === tasksArr[i]) {
-            localStorage.removeItem(`${i}`);
+    let temp = localStorage.getItem('notes');
+    let tempTasksArr = JSON.parse(temp);
+    document.getElementById('notesArea').innerHTML = "";
+    tasksArr = [];
+    let index = 0;
+    for (let i = 0; i < tempTasksArr.length; i++) {
+        if (e.target.parentElement.getAttribute('data-id') !== tempTasksArr[i].dataId) {
+        let task = new Task(tempTasksArr[i].details , tempTasksArr[i].date, tempTasksArr[i].time, index);
+        tasksArr.push(task);
+        tasksArr[index].toNote();
+        index++
         }
     }
+    localStorage.removeItem('notes');
+    localStorage.setItem('notes', JSON.stringify(tasksArr));
 }
 
 
@@ -87,14 +100,14 @@ function checkMustInputs(date, details) {
 
 //reload notes from local storage and show them
 window.onload = function (e) {
-    let temp = localStorage.getItem("all");
+    let temp = localStorage.getItem('notes');
     if (!temp) {
         return;
     }
     let tempTasksArr = JSON.parse(temp);
     tasksArr = [];
     for (let i = 0; i < tempTasksArr.length; i++) {
-        let task = new Task(tempTasksArr[i].details , tempTasksArr[i].date, tempTasksArr[i].time);
+        let task = new Task(tempTasksArr[i].details , tempTasksArr[i].date, tempTasksArr[i].time, tempTasksArr[i].dataId);
         tasksArr.push(task);
         tasksArr[i].toNote();
     }

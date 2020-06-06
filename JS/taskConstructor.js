@@ -1,8 +1,9 @@
 //constructor for tasks info objects
-function Task(details, date, time) {
+function Task(details, date, time, counter) {
     this.details = details;
     this.date = date;
     this.time = time;
+    this.dataId = `${counter}`;
 }
 
 
@@ -11,6 +12,9 @@ Task.prototype.toNote = function () {
     var notesArea = document.getElementById('notesArea');
     var note = document.createElement('div');
     note.classList.add('note');
+    var noteId = document.createAttribute('data-id');
+    noteId.value = this.dataId;
+    note.setAttributeNode(noteId);
     var button = document.createElement('button');
     button.innerHTML = '&times;';
     button.onclick = deleteNote;
