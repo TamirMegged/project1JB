@@ -20,9 +20,9 @@ function addTask() {
     let sortedDate = sortDate(date);
     let time = document.getElementById('timeInput').value;
     if (checkMustInputs(date, details)) {
-        let counter = JSON.parse(localStorage.getItem('notes')).length;
+        var counter = JSON.parse(localStorage.getItem('notes')).length;
         let task = new Task(details, sortedDate, time, counter);
-        task.toNote();
+        task.toNote(true);
         tasksArr.push(task);
         localStorage.setItem('notes', JSON.stringify(tasksArr));
         resetInputs();
@@ -48,10 +48,10 @@ function deleteNote(e) {
     let index = 0;
     for (let i = 0; i < tempTasksArr.length; i++) {
         if (e.target.parentElement.getAttribute('data-id') !== tempTasksArr[i].dataId) {
-        let task = new Task(tempTasksArr[i].details , tempTasksArr[i].date, tempTasksArr[i].time, index);
-        tasksArr.push(task);
-        tasksArr[index].toNote();
-        index++
+            let task = new Task(tempTasksArr[i].details, tempTasksArr[i].date, tempTasksArr[i].time, index);
+            tasksArr.push(task);
+            tasksArr[index].toNote();
+            index++
         }
     }
     localStorage.setItem('notes', JSON.stringify(tasksArr));
@@ -100,12 +100,13 @@ function checkMustInputs(date, details) {
 window.onload = function (e) {
     let temp = localStorage.getItem('notes');
     if (!temp) {
+        localStorage.setItem('notes', "");
         return;
     }
     let tempTasksArr = JSON.parse(temp);
     tasksArr = [];
     for (let i = 0; i < tempTasksArr.length; i++) {
-        let task = new Task(tempTasksArr[i].details , tempTasksArr[i].date, tempTasksArr[i].time, tempTasksArr[i].dataId);
+        let task = new Task(tempTasksArr[i].details, tempTasksArr[i].date, tempTasksArr[i].time, tempTasksArr[i].dataId);
         tasksArr.push(task);
         tasksArr[i].toNote();
     }

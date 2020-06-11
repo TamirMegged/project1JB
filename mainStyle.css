@@ -95,6 +95,12 @@ textarea {
     background-image: url(images/notebg.png);
     height: 250px;
     width: 200px;
+    opacity: 0.5;
+    transition: opacity 2s linear;
+}
+
+.note.active {
+    opacity: 1;
 }
 
 .note:hover > button {
@@ -102,7 +108,6 @@ textarea {
 }
 
 .noteText {
-    pointer-events: none;
     position: absolute;
     top: 45px;
     left: 15px;
@@ -127,7 +132,6 @@ textarea {
 }
 
 .finishTime {
-    pointer-events: none;
     position: absolute;
     bottom: 5px;
     left: 5px;

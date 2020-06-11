@@ -8,8 +8,7 @@ function Task(details, date, time, counter) {
 
 
 //get info from inputs and create a new note containing this info
-Task.prototype.toNote = function () {
-    var notesArea = document.getElementById('notesArea');
+Task.prototype.toNote = function (isNoteNew = false) {
     var note = document.createElement('div');
     note.classList.add('note');
     var noteId = document.createAttribute('data-id');
@@ -24,8 +23,16 @@ Task.prototype.toNote = function () {
     finishTime.classList.add('finishTime');
     noteText.innerText = this.details;
     finishTime.innerHTML = `${this.date}<br>${this.time}`;
-    notesArea.appendChild(note);
     note.appendChild(button);
     note.appendChild(noteText);
     note.appendChild(finishTime);
+    if (isNoteNew) {
+        setTimeout(function () {
+            note.classList.add('active');
+        }, 0);
+    } else {
+        note.classList.add('active');
+    }
+    document.getElementById('notesArea').appendChild(note);
+
 }
