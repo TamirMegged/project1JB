@@ -97,7 +97,7 @@ function checkMustInputs(date, details) {
 
 
 //reload notes from local storage and show them
-window.onload = function (e) {
+window.onload = function () {
     let temp = localStorage.getItem('notes');
     if (!temp) {
         localStorage.setItem('notes', "");
