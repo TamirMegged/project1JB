@@ -100,7 +100,7 @@ function checkMustInputs(date, details) {
 window.onload = function () {
     let temp = localStorage.getItem('notes');
     if (!temp) {
-        localStorage.setItem('notes', "");
+        localStorage.setItem('notes', "[]");
         return;
     }
     let tempTasksArr = JSON.parse(temp);
